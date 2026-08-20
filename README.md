@@ -49,3 +49,37 @@ Imprimir un entero decimal y un entero.
 Tarea 2 Manejo de Binarios
 Implementar el especificador de conversion para imprimir numeros en biniario
 Convertur el argumento unsifned int a binario.
+
+Trabajo Tasha 
+main.h 
+
+The #indef MAIN_H and #define MAIN_H prevent the file form being included multiple times during complilation,
+which could cause duplicate definition errors.
+
+#include <unistd.h> //provides library access to systems call and low level OS operations.
+the #endif closes the include guard lock.
+
+//This proyect includes a set of custom printing utilities defined in main.h: 
+
+print_char(char c)- outputs a single character
+print_string(char *str)- outputs a null-terminated string
+print_number(int n)- Outputs an integer value.
+
+Second Part Tashas Proyect
+printf.h
+
+This code defines two helper functions:
+print_char
+print_string
+
+These are meant to back the %c and %s format specifiers. They use low level write () system instead of
+puts or putchar.
+
+print_char writes a single character and returns indicating one character was written.
+print_string iterates though each character of the string and writes them one at a time to stdout.
+It includes a NULL pointer. If the caller passes NULL, it substiutes the literal string.
+
+The header gaurd standerd to include gaurd to prevent double inclusion in the header file.
+Also holds main h which inlcudes the prototypes.
+
+

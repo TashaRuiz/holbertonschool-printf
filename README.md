@@ -4,7 +4,7 @@ Este proyecto consiste en recrear la función printf de la biblioteca estándar 
 El objetivo es escribir una función personalizada llamada _printf que produzca una salida según un formato
 específico.
 
-Que es print f: 
+Que es print f:
 printf es una función de C que sirve para mostrar texto y valores en una pantalla. Con esta función puedes imprimir:
 texto fijo
 variables 
@@ -83,3 +83,60 @@ The header gaurd standerd to include gaurd to prevent double inclusion in the he
 Also holds main h which inlcudes the prototypes.
 
 
+Description
+A custom implementation of the C library printf function written in C.
+
+Description
+
+This project implements a function called _printf() that produces formatted output according to a format string.
+
+Prototype
+int _printf(const char *format, ...);
+
+The function writes its output to standard output (stdout) and returns the number of characters printed, excluding the null byte used to terminate strings.
+
+
+The _printf function supports the following conversion specifiers:
+
+%c-->    Prints a single character
+%s-->    Prints a string
+%%-->    Prints a percent sign
+%d-->    Prints a decimal integer
+%i-->    Prints an integer
+
+Examples:
+
+Character
+_printf("Character: %c\n", 'A');
+
+Output:
+Character: A
+
+String
+_printf("Hello, %s!\n", "World");
+
+Output:
+Hello, World!
+
+Percent sign
+_printf("100%% complete\n");
+
+Output:
+100% complete
+
+Decimal integer
+_printf("Number: %d\n", 42);
+
+Output:
+Number: 42
+
+Integer
+_printf("Number: %i\n", -25);
+
+Output:
+Number: -25
+
+Authors:
+Milenys--> create the README.md and man page _printf()
+Tasha--> create the header files: main.h and _printf.h
+Harry--> create the main _pritnf.c

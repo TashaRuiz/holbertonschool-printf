@@ -7,7 +7,7 @@ específico.
 Que es print f:
 printf es una función de C que sirve para mostrar texto y valores en una pantalla. Con esta función puedes imprimir:
 texto fijo
-variables 
+variables
 numeros
 caracteres
 cadenas de texto
@@ -50,8 +50,8 @@ Tarea 2 Manejo de Binarios
 Implementar el especificador de conversion para imprimir numeros en biniario
 Convertur el argumento unsifned int a binario.
 
-Trabajo Tasha 
-main.h 
+Trabajo Tasha
+main.h
 
 The #indef MAIN_H and #define MAIN_H prevent the file form being included multiple times during complilation,
 which could cause duplicate definition errors.
@@ -59,7 +59,7 @@ which could cause duplicate definition errors.
 #include <unistd.h> //provides library access to systems call and low level OS operations.
 the #endif closes the include guard lock.
 
-//This proyect includes a set of custom printing utilities defined in main.h: 
+//This proyect includes a set of custom printing utilities defined in main.h:
 
 print_char(char c)- outputs a single character
 print_string(char *str)- outputs a null-terminated string
@@ -83,10 +83,56 @@ The header gaurd standerd to include gaurd to prevent double inclusion in the he
 Also holds main h which inlcudes the prototypes.
 
 
-Description
-A custom implementation of the C library printf function written in C.
+Trabajo Harry:
 
-Description
+The main _printf.c
+
+The function produces output according to a format string and supports a limited set of conversion specifiers.
+It uses variadic arguments through stdarg.h and writes the output directly to the standard output stream using write(). 
+The function returns the total number of characters printed. If format is NULL, or if the format string ends with a single %, the function returns -1.
+
+Function Prototype:
+int _printf(const char format, ...);
+
+The "const charformat"
+
+format is a string containing normal characters and optional format directives.
+
+The "..." means that the function can accept a variable number of additional arguments.
+
+Creating the Variables:
+initialize with the header file "#include <stdarg.h>" but is already implement in the main.h that Tasha created.
+
+1.va_list args;
+    -Stores information needed to access the variable arguments.
+
+2.va_start(args, format);
+    -This initializes args so the function can access the additional arguments passed to _printf.
+
+3.va_arg(args, int);
+    -Retrieves the argument, It is retrieved as an int because of the default argument promotions in C.
+
+4.va_end(args);
+    -This cleans up the variable argument list. Whenever va_start() is used, va_end() should also be called before returning from the function.
+
+The write() syntax:
+initialize with the header file "#include <unistd.h>" but is already implement in the main.h that Tasha created.
+
+write(1, "Hello", 5);
+
+means:
+
+1 → standard output (stdout)
+"Hello" → data to write
+5 → number of bytes to write
+
+Therefore:
+
+write(1, "%", 1);
+
+writes one % character to standard output.
+
+Everyones Description
 
 This project implements a function called _printf() that produces formatted output according to a format string.
 

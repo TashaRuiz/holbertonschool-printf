@@ -28,11 +28,11 @@ int print_string(va_list args)
 	if (str == NULL) /* null si es q string no existe*/
 	{
 		write(1, "(null)", 6);
-		return (0);
+		return (6);
 	}
 	else if (str[0] == '\0') /* \0 si es q string no tiene un valor o esta vacio*/
 	{
-		return (-0);
+		return (-1);
 	}
 	while (*str)
 	{

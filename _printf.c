@@ -22,6 +22,9 @@ int _printf(const char *format, ...)
 	{
 		for (i = 0; format[i] != '\0'; i++)
 		{
+			if (format[i] == '%' && format[i + 1] == '\0')
+				break;
+
 			if (format[i] == '%' && format[i + 1] != '\0')
 			{
 				print = get_struct(format[i + 1], args);

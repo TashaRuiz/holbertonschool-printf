@@ -8,40 +8,42 @@
  */
 int _printf(const char *format, ...)
 {
-	va_list args;
 	int i = 0, count = 0;
+	int print;
 
-	if (format == NULL)
-		return (-1);
+	va_list args;
 
 	va_start(args, format);
 
-	while (format[i] != '\0')
+	if (format != NULL)
 	{
-		if (format[i] == '%')
+		for (i = 0; format[i] != '\0'; i++)
 		{
-			if (format[i + 1] == '\0')
+			if (format[i] == '%' && format[i + 1] != '\0')
 			{
-				va_end(args);
-				return (-1);
+				print = get_struct(format[i + 1], args);
+
+				if (print == 0)
+				{
+					count += _putchar(format[i]);
+				}
+				else if (print < 0)
+				{
+					i++;
+				}
+				else
+				{
+					count += print;
+					i++;
+				}
 			}
-			i++;
-			if (format[i] == 'c')
-				count += print_char((char)va_arg(args, int));
-			else if (format[i] == 's')
-				count += print_string(va_arg(args, char *));
-			else if (format[i] == '%')
-				count += write(1, "%", 1);
 			else
 			{
-				count += write(1, "%", 1);
-				count += write(1, &format[i], 1);
+				count += _putchar(format[i]);
 			}
 		}
-		else
-			count += write(1, &format[i], 1);
-		i++;
 	}
 	va_end(args);
+
 	return (count);
 }

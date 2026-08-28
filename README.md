@@ -88,7 +88,7 @@ Trabajo Harry:
 The main _printf.c
 
 The function produces output according to a format string and supports a limited set of conversion specifiers.
-It uses variadic arguments through stdarg.h and writes the output directly to the standard output stream using write(). 
+It uses variadic arguments through stdarg.h and writes the output directly to the standard output stream using write().
 The function returns the total number of characters printed. If format is NULL, or if the format string ends with a single %, the function returns -1.
 
 Function Prototype:
